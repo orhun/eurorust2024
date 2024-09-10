@@ -365,4 +365,85 @@ tui is unmaintained; use ratatui instead
 
 <!-- end_slide -->
 
-## Renaissance
+## Demo
+
+```bash +exec
+alacritty -qq --working-directory /home/orhun/gh/ratatui -e \
+  cargo run --example demo2 --features crossterm,palette,widget-calendar
+```
+
+<!-- end_slide -->
+
+### Development
+
+![image:width:20%](assets/ratcopter.gif)
+
+```bash
+$ cargo install cargo-generate
+
+$ cargo generate ratatui/templates
+```
+
+<!-- pause -->
+
+<!-- new_lines: 1 -->
+
+```bash +exec
+alacritty -qq --working-directory \
+  /home/orhun/gh/ratatui-templates/simple-generated -e $EDITOR .
+```
+
+<!-- end_slide -->
+
+### Minimal Example
+
+````rust-script {1-25|1-5|7-8|9-15|17-22|24|1-25} +line_numbers +exec
+//! ```cargo
+//! [dependencies]
+//! ratatui = "0.28.1"
+//! ```
+
+use ratatui::{
+    crossterm::event::{self, Event},
+    text::Text,
+    Frame,
+};
+
+fn main() {
+    let mut terminal = ratatui::init();
+    loop {
+        terminal
+            .draw(|frame: &mut Frame| {
+                frame
+                    .render_widget(Text::raw("Hello World!"), frame.area())
+            })
+            .expect("failed to draw frame");
+
+        if matches!(
+            event::read().expect("failed to read event"),
+            Event::Key(_)
+        ) {
+            break;
+        }
+    }
+    ratatui::restore();
+}
+````
+
+<!-- end_slide -->
+
+## Concepts
+
+### Rendering
+
+### Widgets
+
+### Dynamic Layouts
+
+### Miscellaneous
+
+#### Logging
+
+#### Async
+
+## Showcase
