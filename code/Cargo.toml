@@ -1,0 +1,20 @@
+[package]
+name = "eurorust2024-code"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "minimal"
+path = "src/minimal.rs"
+
+[[bin]]
+name = "rendering"
+path = "src/rendering.rs"
+
+[[bin]]
+name = "widget"
+path = "src/widget.rs"
+
+[dependencies]
+rand = "0.8.5"
+ratatui = "0.28.1"

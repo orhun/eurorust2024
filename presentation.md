@@ -186,8 +186,8 @@ like this presentation! 🤡
 
 <!-- pause -->
 
-```bash +exec
-alacritty -qq -e btm
+```bash +exec +acquire_terminal
+btm
 ```
 
 <!-- pause -->
@@ -260,7 +260,7 @@ alacritty -qq -e btm
 
 <!-- column: 1 -->
 
-<https://github.com/fdehau/tui-rs>
+[](https://github.com/fdehau/tui-rs)
 
 <!-- reset_layout -->
 
@@ -272,17 +272,19 @@ alacritty -qq -e btm
 
 # Rust & TUIs
 
-```bash +exec
-alacritty -qq -e kmon
+```bash +exec +acquire_terminal
+kmon
 ```
 
 <!-- column_layout: [1, 1, 1] -->
 
 <!-- column: 1 -->
 
-<https://github.com/orhun/kmon>
+[](https://github.com/orhun/kmon)
 
 <!-- reset_layout -->
+
+<!-- pause -->
 
 ## But then...
 
@@ -367,9 +369,8 @@ tui is unmaintained; use ratatui instead
 
 ## Demo
 
-```bash +exec
-alacritty -qq --working-directory /home/orhun/gh/ratatui -e \
-  cargo run --example demo2 --features crossterm,palette,widget-calendar
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example demo2 --features crossterm,palette,widget-calendar
 ```
 
 <!-- end_slide -->
@@ -388,16 +389,15 @@ $ cargo generate ratatui/templates
 
 <!-- new_lines: 1 -->
 
-```bash +exec
-alacritty -qq --working-directory \
-  /home/orhun/gh/ratatui-templates/simple-generated -e $EDITOR .
+```bash +exec +acquire_terminal
+$EDITOR /home/orhun/gh/ratatui-templates/simple-generated
 ```
 
 <!-- end_slide -->
 
 ### Minimal Example
 
-````rust-script {1-25|1-5|7-8|9-15|17-22|24|1-25} +line_numbers +exec
+````rust-script {5-31|6-10|12-13|14-24|26-29|30|5-31} +line_numbers +exec +acquire_terminal
 //! ```cargo
 //! [dependencies]
 //! ratatui = "0.28.1"
@@ -405,8 +405,8 @@ alacritty -qq --working-directory \
 
 use ratatui::{
     crossterm::event::{self, Event},
-    text::Text,
-    Frame,
+    prelude::*,
+    widgets::*,
 };
 
 fn main() {
@@ -414,15 +414,16 @@ fn main() {
     loop {
         terminal
             .draw(|frame: &mut Frame| {
-                frame
-                    .render_widget(Text::raw("Hello World!"), frame.area())
+                frame.render_widget(
+                    Paragraph::new("Hello World!")
+                        .centered()
+                        .block(Block::bordered()),
+                    frame.area(),
+                )
             })
             .expect("failed to draw frame");
 
-        if matches!(
-            event::read().expect("failed to read event"),
-            Event::Key(_)
-        ) {
+        if matches!(event::read().expect("failed to read event"), Event::Key(_)) {
             break;
         }
     }
@@ -434,11 +435,116 @@ fn main() {
 
 ## Concepts
 
+<!-- pause -->
+
 ### Rendering
+
+```rust {1-16|1|1,4,9|6,11|1-16} +line_numbers
+let mut toggle = false;
+loop {
+    terminal.draw(|frame: &mut Frame| {
+        if toggle {
+            frame.render_widget(
+                BarChart::default()
+                //...
+            );
+        } else {
+            frame.render_widget(
+                LineGauge::default()
+                //...
+            );
+        }
+    });
+}
+```
+
+<!-- pause -->
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin rendering
+```
+
+![](assets/rat.gif)
+
+<!-- end_slide -->
 
 ### Widgets
 
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+```rust +line_numbers
+pub trait Widget {
+    /// Draws the current state of the widget in the given buffer.
+    fn render(self, area: Rect, buf: &mut Buffer) where Self: Sized;
+}
+```
+
+<!-- pause -->
+
+```rust +line_numbers
+pub struct RandomColorWidget {
+    rng: rand::rngs::ThreadRng,
+}
+```
+
+<!-- pause -->
+
+```rust +line_numbers
+impl Widget for &mut RandomColorWidget {
+    fn render(self, area: Rect, buf: &mut Buffer) {
+        for x in area.left()..area.right() {
+            for y in area.top()..area.bottom() {
+                let color = Color::from_hsl(
+                    self.rng.gen_range(0..=10) as f64,
+                    self.rng.gen_range(0..=10) as f64,
+                    self.rng.gen_range(0..=40) as f64,
+                );
+                if let Some(cell) = buf.cell_mut(Position::new(x, y)) {
+                    cell.reset();
+                    cell.set_bg(color);
+                }
+            }
+        }
+    }
+}
+```
+
+<!-- pause -->
+
+<!-- column: 1 -->
+
+```rust +line_numbers
+loop {
+    let mut random_color_widget = RandomColorWidget {
+        rng: rand::thread_rng(),
+    };
+    terminal
+        .draw(|frame: &mut Frame| {
+            frame.render_widget(&mut random_color_widget, frame.area())
+        })
+        .expect("failed to draw frame");
+
+    if event::poll(time::Duration::from_millis(50)).expect("failed to poll event") {
+        if matches!(event::read().expect("failed to read event"), Event::Key(_)) {
+            break;
+        }
+    }
+}
+```
+
+<!-- pause -->
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widget
+```
+
+<!-- end_slide -->
+
 ### Dynamic Layouts
+
+<!-- end_slide -->
 
 ### Miscellaneous
 
@@ -447,3 +553,7 @@ fn main() {
 #### Async
 
 ## Showcase
+
+```
+
+```
