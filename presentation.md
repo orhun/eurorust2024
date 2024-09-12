@@ -464,15 +464,11 @@ loop {
 cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin rendering
 ```
 
-![](assets/rat.gif)
+![image:width:6%](assets/rat.gif)
 
 <!-- end_slide -->
 
 ### Widgets
-
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
 
 ```rust +line_numbers
 pub trait Widget {
@@ -491,7 +487,7 @@ pub struct RandomColorWidget {
 
 <!-- pause -->
 
-```rust +line_numbers
+```rust {1-17|10-13} +line_numbers
 impl Widget for &mut RandomColorWidget {
     fn render(self, area: Rect, buf: &mut Buffer) {
         for x in area.left()..area.right() {
@@ -511,11 +507,9 @@ impl Widget for &mut RandomColorWidget {
 }
 ```
 
-<!-- pause -->
+<!-- end_slide -->
 
-<!-- column: 1 -->
-
-```rust +line_numbers
+```rust {1-16|2-4|5-9|11-15|1-16}+line_numbers
 loop {
     let mut random_color_widget = RandomColorWidget {
         rng: rand::thread_rng(),
@@ -536,8 +530,39 @@ loop {
 
 <!-- pause -->
 
+<!-- new_lines: 1 -->
+
 ```bash +exec +acquire_terminal
 cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widget
+```
+
+![image:width:6%](assets/rat.gif)
+
+<!-- end_slide -->
+
+### Buffer
+
+<!-- new_lines: 3 -->
+
+```svgbob
+        0     1     2     3     4     5     6     7     8     9    10    11
+     ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+   0 │  H  │  e  │  l  │  l  │  o  │     │  W  │  o  │  r  │  l  │  d  │  !  │
+     ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+   1 │     │     │     │     │  ▲  │     │     │     │     │     │     │     │
+     ├─────┼─────┼─────┼─────┼─ │ ─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+   2 │     │     │     │     │  │  │     │     │     │     │     │     │     │
+     ├─────┼─────┼─────┼─────┼─ │ ─┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+   3 │     │     │   ┌──────────┴──────────┐   │     │     │     │     │     │
+     └─────┴─────┴── │ ┴─────┴─────┴─────┴ │ ──┴─────┴─────┴─────┴─────┴─────┘
+                     │                     │
+              ┌──────┴──────┐       ┌──────┴──────┐
+              │   symbol    │       │    style    │
+              │             │       │             │
+              │     “o”     │       │ fg":"Reset  │
+              │             │       │ bg":"Reset  │
+              │             │       │             │
+              └─────────────┘       └─────────────┘
 ```
 
 <!-- end_slide -->
