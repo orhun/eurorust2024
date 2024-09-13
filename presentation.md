@@ -363,7 +363,7 @@ tui is unmaintained; use ratatui instead
 
 <https://github.com/ratatui/ratatui/issues/1321>
 
-![](assets/rat.gif)
+![image:width:6%](assets/rat.gif)
 
 <!-- end_slide -->
 
@@ -470,6 +470,10 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin rend
 
 ### Widgets
 
+- Block, BarChart, Calendar, Canvas, Chart, Gauge, LineGauge, List, Paragraph, Scrollbar, Sparkline, Table, Tabs
+
+<!-- pause -->
+
 ```rust +line_numbers
 pub trait Widget {
     /// Draws the current state of the widget in the given buffer.
@@ -542,8 +546,6 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
 
 ### Buffer
 
-<!-- new_lines: 3 -->
-
 ```svgbob
         0     1     2     3     4     5     6     7     8     9    10    11
      ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
@@ -565,9 +567,57 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
               └─────────────┘       └─────────────┘
 ```
 
+```rust +line_numbers
+let mut buffer = Buffer::empty(Rect::new(0, 0, 12, 4));
+buffer.set_string(0, 0, "Hello World!", Style::default());
+
+assert_eq!(
+    buffer,
+    Buffer::with_lines([
+        "Hello World!",
+        "            ",
+        "            ",
+        "            ",
+    ])
+);
+assert_eq!(buffer.cell(Position::new(4, 0)), Some(&Cell::new("o")));
+```
+
 <!-- end_slide -->
 
 ### Dynamic Layouts
+
+```rust {1-9|2|3-4|9|1-9} +line_numbers
+let layout = Layout::default()
+    .direction(Direction::Horizontal)
+    .constraints([
+        Constraint::Length(10),
+        Constraint::Percentage(70),
+        Constraint::Min(5),
+    ]
+    .into_iter())
+    .split(frame.size());
+```
+
+<!-- pause -->
+
+#### Constraints
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraints
+```
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraint-explorer
+```
+
+#### Flex
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
+```
+
+![image:width:6%](assets/rat.gif)
 
 <!-- end_slide -->
 
@@ -576,6 +626,8 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
 #### Logging
 
 #### Async
+
+<!-- end_slide -->
 
 ## Showcase
 
