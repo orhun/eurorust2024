@@ -633,6 +633,8 @@ cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
 
 ### Miscellaneous
 
+#### Styling
+
 #### Logging
 
 #### Async
@@ -641,6 +643,6 @@ cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
 
 ## Showcase
 
-```
-
-```
+- https://github.com/bones-ai/rust-snake-ai-ratatui
+- https://github.com/junkdog/tachyonfx
+- https://github.com/Patryk27/kartoffels
