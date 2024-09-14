@@ -15,6 +15,10 @@ path = "src/rendering.rs"
 name = "widget"
 path = "src/widget.rs"
 
+[[bin]]
+name = "layout"
+path = "src/layout.rs"
+
 [dependencies]
 rand = "0.8.5"
 ratatui = "0.28.1"

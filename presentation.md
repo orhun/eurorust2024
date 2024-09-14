@@ -567,7 +567,7 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
               └─────────────┘       └─────────────┘
 ```
 
-```rust +line_numbers
+```rust {1-13|1-2|4-13|1-13} +line_numbers
 let mut buffer = Buffer::empty(Rect::new(0, 0, 12, 4));
 buffer.set_string(0, 0, "Hello World!", Style::default());
 
@@ -601,13 +601,25 @@ let layout = Layout::default()
 
 <!-- pause -->
 
+```rust +line_numbers
+fn get_layout_based_on_messages(msg_count: usize, f: &Frame) -> Rc<[Rect]> {
+    let msg_percentage = if msg_count > 50 { 80 } else { 50 };
+    Layout::default()
+        .direction(Direction::Vertical)
+        .constraints([
+            Constraint::Percentage(msg_percentage),
+            Constraint::Percentage(100 - msg_percentage),
+        ])
+        .split(f.area())
+}
+```
+
+<!-- pause -->
+
 #### Constraints
 
 ```bash +exec +acquire_terminal
 cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraints
-```
-
-```bash +exec +acquire_terminal
 cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraint-explorer
 ```
 
@@ -616,8 +628,6 @@ cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraint
 ```bash +exec +acquire_terminal
 cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
 ```
-
-![image:width:6%](assets/rat.gif)
 
 <!-- end_slide -->
 
