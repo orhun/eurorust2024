@@ -13,11 +13,15 @@ path = "src/rendering.rs"
 
 [[bin]]
 name = "widget"
-path = "src/widget.rs"
+path = "src/widget/main.rs"
+
+[[test]]
+name = "test_widget"
+path = "src/widget/test.rs"
 
 [[bin]]
 name = "layout"
-path = "src/layout.rs"
+path = "src/layout/main.rs"
 
 [dependencies]
 rand = "0.8.5"

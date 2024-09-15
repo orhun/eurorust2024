@@ -182,7 +182,7 @@ pub const ONE_EIGHTH_RIGHT_EIGHT: &str = "▕";
 
 like this presentation! 🤡
 
-<https://github.com/mfontanini/presenterm>
+[](https://github.com/mfontanini/presenterm)
 
 <!-- pause -->
 
@@ -397,39 +397,10 @@ $EDITOR /home/orhun/gh/ratatui-templates/simple-generated
 
 ### Minimal Example
 
-````rust-script {5-31|6-10|12-13|14-24|26-29|30|5-31} +line_numbers +exec +acquire_terminal
-//! ```cargo
-//! [dependencies]
-//! ratatui = "0.28.1"
-//! ```
-
-use ratatui::{
-    crossterm::event::{self, Event},
-    prelude::*,
-    widgets::*,
-};
-
-fn main() {
-    let mut terminal = ratatui::init();
-    loop {
-        terminal
-            .draw(|frame: &mut Frame| {
-                frame.render_widget(
-                    Paragraph::new("Hello World!")
-                        .centered()
-                        .block(Block::bordered()),
-                    frame.area(),
-                )
-            })
-            .expect("failed to draw frame");
-
-        if matches!(event::read().expect("failed to read event"), Event::Key(_)) {
-            break;
-        }
-    }
-    ratatui::restore();
-}
-````
+```file {5-31|6-10|12-13|14-24|26-29|30|5-31} +line_numbers +exec +acquire_terminal
+path: code/src/minimal.rs
+language: rust
+```
 
 <!-- end_slide -->
 
@@ -491,45 +462,16 @@ pub struct RandomColorWidget {
 
 <!-- pause -->
 
-```rust {1-17|10-13} +line_numbers
-impl Widget for &mut RandomColorWidget {
-    fn render(self, area: Rect, buf: &mut Buffer) {
-        for x in area.left()..area.right() {
-            for y in area.top()..area.bottom() {
-                let color = Color::from_hsl(
-                    self.rng.gen_range(0..=10) as f64,
-                    self.rng.gen_range(0..=10) as f64,
-                    self.rng.gen_range(0..=40) as f64,
-                );
-                if let Some(cell) = buf.cell_mut(Position::new(x, y)) {
-                    cell.reset();
-                    cell.set_bg(color);
-                }
-            }
-        }
-    }
-}
+```file {1-20|13-16} +line_numbers
+path: code/src/widget/widget.rs
+language: rust
 ```
 
 <!-- end_slide -->
 
-```rust {1-16|2-4|5-9|11-15|1-16}+line_numbers
-loop {
-    let mut random_color_widget = RandomColorWidget {
-        rng: rand::thread_rng(),
-    };
-    terminal
-        .draw(|frame: &mut Frame| {
-            frame.render_widget(&mut random_color_widget, frame.area())
-        })
-        .expect("failed to draw frame");
-
-    if event::poll(time::Duration::from_millis(50)).expect("failed to poll event") {
-        if matches!(event::read().expect("failed to read event"), Event::Key(_)) {
-            break;
-        }
-    }
-}
+```file {1-25|8-10|12-16|18-24|1-25}+line_numbers
+path: code/src/widget/render.rs
+language: rust
 ```
 
 <!-- pause -->
@@ -567,51 +509,31 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
               └─────────────┘       └─────────────┘
 ```
 
-```rust {1-13|1-2|4-13|1-13} +line_numbers
-let mut buffer = Buffer::empty(Rect::new(0, 0, 12, 4));
-buffer.set_string(0, 0, "Hello World!", Style::default());
-
-assert_eq!(
-    buffer,
-    Buffer::with_lines([
-        "Hello World!",
-        "            ",
-        "            ",
-        "            ",
-    ])
-);
-assert_eq!(buffer.cell(Position::new(4, 0)), Some(&Cell::new("o")));
+```file {1-16|4-5|6-15|1-16} +line_numbers
+path: code/src/widget/test.rs
+language: rust
 ```
 
 <!-- end_slide -->
 
 ### Dynamic Layouts
 
-```rust {1-9|2|3-4|9|1-9} +line_numbers
+```rust {1-9|2|3-7|9|1-9} +line_numbers
 let layout = Layout::default()
     .direction(Direction::Horizontal)
-    .constraints([
+    .constraints(&[
         Constraint::Length(10),
         Constraint::Percentage(70),
         Constraint::Min(5),
-    ]
-    .into_iter())
-    .split(frame.size());
+    ])
+    .split(frame.area());
 ```
 
 <!-- pause -->
 
-```rust +line_numbers
-fn get_layout_based_on_messages(msg_count: usize, f: &Frame) -> Rc<[Rect]> {
-    let msg_percentage = if msg_count > 50 { 80 } else { 50 };
-    Layout::default()
-        .direction(Direction::Vertical)
-        .constraints([
-            Constraint::Percentage(msg_percentage),
-            Constraint::Percentage(100 - msg_percentage),
-        ])
-        .split(f.area())
-}
+```file +line_numbers
+path: code/src/layout/layout.rs
+language: rust
 ```
 
 <!-- pause -->
