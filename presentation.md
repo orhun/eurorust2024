@@ -6,7 +6,7 @@ theme:
   override:
     footer:
       style: template
-      left: "gh/@orhun"
+      left: "@orhundev"
       right: "{current_slide}"
     slide_title:
       alignment: center
@@ -361,7 +361,9 @@ tui is unmaintained; use ratatui instead
 
 > Improving aesthetics and customization options to make Ratatui more visually appealing and attention-grabbing.
 
-<https://github.com/ratatui/ratatui/issues/1321>
+---
+
+\- [](https://github.com/ratatui/ratatui/issues/1321)
 
 ![image:width:6%](assets/rat.gif)
 
@@ -399,7 +401,7 @@ $EDITOR /home/orhun/gh/ratatui-templates/simple-generated
 
 ```file {5-31|6-10|12-13|14-24|26-29|30|5-31} +line_numbers +exec +acquire_terminal
 path: code/src/minimal.rs
-language: rust
+language: rust-script
 ```
 
 <!-- end_slide -->
@@ -469,7 +471,7 @@ language: rust
 
 <!-- end_slide -->
 
-```file {1-25|8-10|12-16|18-24|1-25}+line_numbers
+```file {1-25|8-10|11-16|17-24|1-25}+line_numbers
 path: code/src/widget/render.rs
 language: rust
 ```
@@ -488,6 +490,13 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
 
 ### Buffer
 
+```file {1-16|4-5|6-15|1-16} +line_numbers
+path: code/src/widget/test.rs
+language: rust
+```
+
+<!-- pause -->
+
 ```svgbob
         0     1     2     3     4     5     6     7     8     9    10    11
      ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
@@ -505,13 +514,7 @@ cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widg
               │             │       │             │
               │     “o”     │       │ fg":"Reset  │
               │             │       │ bg":"Reset  │
-              │             │       │             │
               └─────────────┘       └─────────────┘
-```
-
-```file {1-16|4-5|6-15|1-16} +line_numbers
-path: code/src/widget/test.rs
-language: rust
 ```
 
 <!-- end_slide -->
@@ -555,16 +558,111 @@ cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
 
 ### Miscellaneous
 
+<!-- pause -->
+
 #### Styling
+
+```rust +line_numbers
+let styled_text = "Styling is easy".black().on_magenta();
+let bold_italic_text = "Look ma! Bold and italic".bold().italic();
+let mixed_line = vec![
+    "And ".fg(Color::Yellow),
+    "mixed".bg(Color::Indexed(1)),
+    " styling".fg(Color::Rgb(100, 200, 200)),
+];
+```
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin styling
+```
+
+<!-- pause -->
+
+#### Macros
+
+[](https://github.com/ratatui/ratatui-macros)
+
+```rust
+constraints![==50, ==30%, >=3, <=1, ==1/2, *=1],
+```
+
+<!-- pause -->
 
 #### Logging
 
-#### Async
+[](https://github.com/gin66/tui-logger)
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/tui-logger/Cargo.toml --example demo --features crossterm
+```
 
 <!-- end_slide -->
 
 ## Showcase
 
-- https://github.com/bones-ai/rust-snake-ai-ratatui
-- https://github.com/junkdog/tachyonfx
-- https://github.com/Patryk27/kartoffels
+### Tachyonfx
+
+> Provides a collection of effects that can be used to enhance the
+> visual appeal of terminal applications, offering capabilities such as color
+> transformations, animations, and complex effect combinations.
+
+[](https://github.com/junkdog/tachyonfx)
+
+```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
+```
+
+<!-- pause -->
+
+### Snake AI
+
+[](https://github.com/bones-ai/rust-snake-ai-ratatui)
+
+<!-- pause -->
+
+### Kartoffels
+
+[](https://github.com/Patryk27/kartoffels)
+
+<!-- end_slide -->
+
+# Thank you!
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 0 -->
+
+## Reach out
+
+- [](orhun.dev)
+- [](https://github.com/orhun)
+
+<!-- column: 1 -->
+
+## Socials
+
+- @orhun@fosstodon.org
+- Twitter: @orhundev
+- YouTube: @orhundev
+- LinkedIn: @orhundev
+
+<!-- column: 2 -->
+
+## Ratatui
+
+- [](https://ratatui.rs)
+- [](https://github.com/ratatui)
+
+<!-- reset_layout -->
+
+![image:width:20%](assets/ratcopter.gif)
+
+<!-- column_layout: [1, 1, 1] -->
+
+<!-- column: 1 -->
+
+# Any questions?
+
+Slides: [](https://github.com/orhun/eurorust2024)
+
+TODO: Add QR code
