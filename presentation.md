@@ -299,7 +299,7 @@ kmon
 > I'm currently thinking of ways to either find more maintainers or pass the torch to others who can better
 > support the community and keep the project alive and thriving.
 
-<https://github.com/fdehau/tui-rs/issues/654>
+[](https://github.com/fdehau/tui-rs/issues/654)
 
 <!-- end_slide -->
 
@@ -624,6 +624,16 @@ cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
 
 [](https://github.com/Patryk27/kartoffels)
 
+<!-- pause -->
+
+### TheaTTYr
+
+```bash +exec +acquire_terminal
+theattyr twilightzone.vt
+```
+
+[](https://github.com/orhun/theattyr)
+
 <!-- end_slide -->
 
 # Thank you!
@@ -644,7 +654,7 @@ cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
 - @orhun@fosstodon.org
 - Twitter: @orhundev
 - YouTube: @orhundev
-- LinkedIn: @orhundev
+- LinkedIn: @orhunp\_
 
 <!-- column: 2 -->
 
