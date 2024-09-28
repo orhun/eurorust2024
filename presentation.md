@@ -609,6 +609,7 @@ cargo run --manifest-path /home/orhun/gh/tui-logger/Cargo.toml --example demo --
 [](https://github.com/junkdog/tachyonfx)
 
 ```bash +exec +acquire_terminal
+cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example fx-chart
 cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
 ```
 
@@ -618,11 +619,19 @@ cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
 
 [](https://github.com/bones-ai/rust-snake-ai-ratatui)
 
+```bash +exec +acquire_terminal
+cargo run --release --manifest-path /home/orhun/gh/rust-snake-ai-ratatui/Cargo.toml
+```
+
 <!-- pause -->
 
 ### Kartoffels
 
 [](https://github.com/Patryk27/kartoffels)
+
+```bash +exec +acquire_terminal
+ssh kartoffels.pwy.io
+```
 
 <!-- pause -->
 
@@ -675,4 +684,4 @@ theattyr twilightzone.vt
 
 Slides: [](https://github.com/orhun/eurorust2024)
 
-TODO: Add QR code
+![image:width:50%](assets/slides-qr.png)
