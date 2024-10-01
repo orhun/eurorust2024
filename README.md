@@ -11,5 +11,5 @@ cargo install --git https://github.com/mfontanini/presenterm
 Then simply run:
 
 ```bash
-presenterm presentation.md --config-file config.yml --enable-snippet-execution
+presenterm presentation.md -X -c config.yml -p
 ```
