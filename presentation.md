@@ -663,7 +663,7 @@ theattyr twilightzone.vt
 - @orhun@fosstodon.org
 - Twitter: @orhundev
 - YouTube: @orhundev
-- LinkedIn: @orhunp\_
+- LinkedIn: @orhunp
 
 <!-- column: 2 -->
 
