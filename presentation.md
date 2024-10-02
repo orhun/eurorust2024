@@ -64,7 +64,7 @@ theme:
 ## VT100 Art
 
 ```bash +exec
-mpv --quiet --loop-file /home/orhun/gh/eurorust2024/assets/twilight.mp4
+mpv --quiet --loop-file assets/twilight.mp4
 ```
 
 <!-- pause -->
@@ -372,7 +372,7 @@ tui is unmaintained; use ratatui instead
 ## Demo
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example demo2 --features crossterm,palette,widget-calendar
+cargo run --manifest-path ratatui/Cargo.toml --example demo2 --features crossterm,palette,widget-calendar
 ```
 
 <!-- end_slide -->
@@ -392,7 +392,7 @@ $ cargo generate ratatui/templates
 <!-- new_lines: 1 -->
 
 ```bash +exec +acquire_terminal
-$EDITOR /home/orhun/gh/ratatui-templates/simple-generated
+$EDITOR ratatui-templates/simple-generated
 ```
 
 <!-- end_slide -->
@@ -434,7 +434,7 @@ loop {
 <!-- pause -->
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin rendering
+cargo run --manifest-path code/Cargo.toml --bin rendering
 ```
 
 ![image:width:6%](assets/rat.gif)
@@ -481,7 +481,7 @@ language: rust
 <!-- new_lines: 1 -->
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin widget
+cargo run --manifest-path code/Cargo.toml --bin widget
 ```
 
 ![image:width:6%](assets/rat.gif)
@@ -544,14 +544,14 @@ language: rust
 #### Constraints
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraints
-cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example constraint-explorer
+cargo run --manifest-path ratatui/Cargo.toml --example constraints
+cargo run --manifest-path ratatui/Cargo.toml --example constraint-explorer
 ```
 
 #### Flex
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/ratatui/Cargo.toml --example flex
+cargo run --manifest-path ratatui/Cargo.toml --example flex
 ```
 
 <!-- end_slide -->
@@ -573,7 +573,7 @@ let mixed_line = vec![
 ```
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/eurorust2024/code/Cargo.toml --bin styling
+cargo run --manifest-path code/Cargo.toml --bin styling
 ```
 
 <!-- pause -->
@@ -593,7 +593,7 @@ constraints![==50, ==30%, >=3, <=1, ==1/2, *=1],
 [](https://github.com/gin66/tui-logger)
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/tui-logger/Cargo.toml --example demo --features crossterm
+cargo run --manifest-path tui-logger/Cargo.toml --example demo --features crossterm
 ```
 
 <!-- end_slide -->
@@ -609,8 +609,8 @@ cargo run --manifest-path /home/orhun/gh/tui-logger/Cargo.toml --example demo --
 [](https://github.com/junkdog/tachyonfx)
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example fx-chart
-cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
+cargo run --manifest-path tachyonfx/Cargo.toml --example fx-chart
+cargo run --manifest-path tachyonfx/Cargo.toml --example tweens
 ```
 
 <!-- pause -->
@@ -620,7 +620,7 @@ cargo run --manifest-path /home/orhun/gh/tachyonfx/Cargo.toml --example tweens
 [](https://github.com/bones-ai/rust-snake-ai-ratatui)
 
 ```bash +exec +acquire_terminal
-cargo run --release --manifest-path /home/orhun/gh/rust-snake-ai-ratatui/Cargo.toml
+cargo run --release --manifest-path ratatui-snake-ai/Cargo.toml
 ```
 
 <!-- pause -->

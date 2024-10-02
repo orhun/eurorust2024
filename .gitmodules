@@ -1,0 +1,15 @@
+[submodule "ratatui"]
+	path = ratatui
+	url = https://github.com/ratatui/ratatui
+[submodule "ratatui-templates"]
+	path = ratatui-templates
+	url = https://github.com/ratatui/templates
+[submodule "tui-logger"]
+	path = tui-logger
+	url = https://github.com/gin66/tui-logger
+[submodule "tachyonfx"]
+	path = tachyonfx
+	url = https://github.com/junkdog/tachyonfx
+[submodule "ratatui-snake-ai"]
+	path = ratatui-snake-ai
+	url = https://github.com/bones-ai/rust-snake-ai-ratatui

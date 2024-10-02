@@ -8,6 +8,12 @@ To start the presentation, first install [presenterm](https://github.com/mfontan
 cargo install --git https://github.com/mfontanini/presenterm
 ```
 
+Update submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
 Then simply run:
 
 ```bash
