@@ -15,6 +15,8 @@ theme:
 
 # Who dat?
 
+<!-- pause -->
+
 <!-- column_layout: [5, 5, 1] -->
 
 <!-- column: 0 -->
@@ -31,7 +33,7 @@ theme:
 
 ✨ Open Source Connoisseur (`github.com/orhun`)
 
-🦀 Creator of **git-cliff**, kmon, gpg-tui, systeroid…
+🦀 Creator of **git-cliff**, binsider, kmon, systeroid…
 
 🐭 Project Leader @ **Ratatui**
 
@@ -43,7 +45,19 @@ theme:
 
 <!-- new_lines: 1 -->
 
-![image:width:40%](assets/arch.png) ![image:width:40%](assets/ratatui.png) ![image:width:40%](assets/git-cliff.png)
+![image:width:60%](assets/arch.png) ![image:width:60%](assets/ratatui.png) ![image:width:60%](assets/git-cliff.png)
+
+<!-- end_slide -->
+
+<!-- new_lines: 15 -->
+
+<!-- column_layout: [3, 1, 3] -->
+
+<!-- column: 1 -->
+
+̶r̶a̶t̶ **ren**aissance.
+
+![image:width:50%](assets/rat.gif)
 
 <!-- end_slide -->
 
@@ -69,20 +83,18 @@ mpv --quiet --loop-file assets/twilight.mp4
 
 <!-- pause -->
 
-These are VT100 Animation files, which are meant to be thrown up raw at a vt100-compatible terminal.
+| Animation      | File Size | Description                            |
+| -------------- | --------- | -------------------------------------- |
+| bambi.vt       | 12818     | Bambi vs. Godzilla                     |
+| dirty.vt       | 25081     | Someone Having an Awful Amount of Fun  |
+| globe.vt       | 29696     | ABSOLUTELY EXCELLENT Spinning Globe    |
+| monkey.vt      | 51041     | The Monkey Gives You The Finger        |
+| movglobe.vt    | 250452    | Incredible Spinning, Moving Globe      |
+| outerlimits.vt | 63832     | The Outer Limits                       |
+| pac3d.vt       | 17248     | Pac Man in 3-D Chomping a Ghost        |
+| peace.vt       | 79456     | Imagine World Peace by John G. Poupore |
 
-[http://artscene.textfiles.com/vt100/](http://artscene.textfiles.com/vt100/)
-
-| Animation                        | File Size | Description                                             |
-| -------------------------------- | --------- | ------------------------------------------------------- |
-| [bambi.vt](bambi.vt)             | 12818     | VT100 ANIMATION: Bambi vs. Godzilla                     |
-| [dirty.vt](dirty.vt)             | 25081     | VT100 ANIMATION: Someone Having an Awful Amount of Fun  |
-| [globe.vt](globe.vt)             | 29696     | VT100 ANIMATION: ABSOLUTELY EXCELLENT Spinning Globe    |
-| [monkey.vt](monkey.vt)           | 51041     | VT100 ANIMATION: The Monkey Gives You The Finger        |
-| [movglobe.vt](movglobe.vt)       | 250452    | VT100 ANIMATION: Incredible Spinning, Moving Globe      |
-| [outerlimits.vt](outerlimits.vt) | 63832     | VT100 ANIMATION: The Outer Limits                       |
-| [pac3d.vt](pac3d.vt)             | 17248     | VT100 ANIMATION: Pac Man in 3-D Chomping a Ghost        |
-| [peace.vt](peace.vt)             | 79456     | VT100 ANIMATION: Imagine World Peace by John G. Poupore |
+[](http://artscene.textfiles.com/vt100/)
 
 <!-- pause -->
 
@@ -100,7 +112,7 @@ These are VT100 Animation files, which are meant to be thrown up raw at a vt100-
 
 <!-- column: 1 -->
 
-_Example ANSI escape sequences used above_
+_Example ANSI escape sequences_
 
 <!-- end_slide -->
 
@@ -155,13 +167,14 @@ pub const ONE_EIGHTH_BOTTOM_EIGHT: &str = "▁";
 pub const ONE_EIGHTH_LEFT_EIGHT: &str = "▏";
 pub const ONE_EIGHTH_RIGHT_EIGHT: &str = "▕";
 
-/// Wide border set based on McGugan box technique
+/// Wide border set based on McGugan technique
 ///
 /// ```text
 /// ▁▁▁▁▁▁▁
 /// ▏xxxxx▕
 /// ▏xxxxx▕
 /// ▔▔▔▔▔▔▔
+/// ```
 ````
 
 <!-- end_slide -->
@@ -180,11 +193,15 @@ pub const ONE_EIGHTH_RIGHT_EIGHT: &str = "▕";
 
 <!-- pause -->
 
-like this presentation! 🤡
+Like this presentation! 🤡
 
 [](https://github.com/mfontanini/presenterm)
 
+Big thanks to **Matias Fontanini** for **presenterm**!
+
 <!-- pause -->
+
+---
 
 ```bash +exec +acquire_terminal
 btm
@@ -196,7 +213,7 @@ btm
 
 <!-- pause -->
 
-**blazingly fast???** 🦀
+And **blazingly fast???** 🦀
 
 <!-- end_slide -->
 
@@ -273,7 +290,7 @@ btm
 # Rust & TUIs
 
 ```bash +exec +acquire_terminal
-kmon
+kmon --color 666 --unicode
 ```
 
 <!-- column_layout: [1, 1, 1] -->
@@ -363,7 +380,7 @@ tui is unmaintained; use ratatui instead
 
 ---
 
-\- [](https://github.com/ratatui/ratatui/issues/1321)
+[](https://github.com/ratatui/ratatui/issues/1321)
 
 ![image:width:6%](assets/rat.gif)
 
@@ -602,10 +619,6 @@ cargo run --manifest-path tui-logger/Cargo.toml --example demo --features crosst
 
 ### Tachyonfx
 
-> Provides a collection of effects that can be used to enhance the
-> visual appeal of terminal applications, offering capabilities such as color
-> transformations, animations, and complex effect combinations.
-
 [](https://github.com/junkdog/tachyonfx)
 
 ```bash +exec +acquire_terminal
@@ -630,22 +643,34 @@ cargo run --release --manifest-path ratatui-snake-ai/Cargo.toml
 [](https://github.com/Patryk27/kartoffels)
 
 ```bash +exec +acquire_terminal
-ssh kartoffels.pwy.io
+ssh kartoffels.pwy.io > /dev/null
 ```
 
-<!-- pause -->
+<!-- end_slide -->
+
+## Showcase
 
 ### TheaTTYr
 
 ```bash +exec +acquire_terminal
-theattyr twilightzone.vt
+theattyr twilightzone.vt --fps 100
 ```
 
 [](https://github.com/orhun/theattyr)
 
+<!-- pause -->
+
+---
+
+See [](https://github.com/ratatui/awesome-ratatui) for more!
+
+![image:width:6%](assets/rat.gif)
+
 <!-- end_slide -->
 
 # Thank you!
+
+<!-- pause -->
 
 <!-- column_layout: [1, 1, 1] -->
 
@@ -660,10 +685,10 @@ theattyr twilightzone.vt
 
 ## Socials
 
-- @orhun@fosstodon.org
-- Twitter: @orhundev
-- YouTube: @orhundev
-- LinkedIn: @orhunp
+- **@orhun@fosstodon.org**
+- Twitter: **@orhundev**
+- YouTube: **@orhundev**
+- LinkedIn: **@orhunp**
 
 <!-- column: 2 -->
 
@@ -676,12 +701,14 @@ theattyr twilightzone.vt
 
 ![image:width:20%](assets/ratcopter.gif)
 
+<!-- pause -->
+
 <!-- column_layout: [1, 1, 1] -->
 
 <!-- column: 1 -->
 
 # Any questions?
 
-Slides: [](https://github.com/orhun/eurorust2024)
+Slides: [](github.com/orhun/eurorust2024)
 
 ![image:width:50%](assets/slides-qr.png)

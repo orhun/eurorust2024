@@ -12,4 +12,4 @@ if ! command -v presenterm &>/dev/null; then
 fi
 
 git submodule update --init --recursive
-wezterm --config-file .wezterm.lua start presenterm "$PWD"/presentation.md --config-file "$PWD"/config.yml -X &
+wezterm --config-file .wezterm.lua start presenterm "$PWD"/presentation.md --config-file "$PWD"/config.yml -X -p &
