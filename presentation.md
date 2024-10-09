@@ -488,7 +488,7 @@ language: rust
 
 <!-- end_slide -->
 
-```file {1-25|8-10|11-16|17-24|1-25}+line_numbers
+```file {1-25|7-9|11-16|17-24|1-25}+line_numbers
 path: code/src/widget/render.rs
 language: rust
 ```
@@ -551,7 +551,7 @@ let layout = Layout::default()
 
 <!-- pause -->
 
-```file +line_numbers
+```file {1-11|3|1-11} +line_numbers
 path: code/src/layout/layout.rs
 language: rust
 ```
@@ -564,6 +564,8 @@ language: rust
 cargo run --manifest-path ratatui/Cargo.toml --example constraints
 cargo run --manifest-path ratatui/Cargo.toml --example constraint-explorer
 ```
+
+<!-- pause -->
 
 #### Flex
 
@@ -617,12 +619,14 @@ cargo run --manifest-path tui-logger/Cargo.toml --example demo --features crosst
 
 ## Showcase
 
+<!-- pause -->
+
 ### Tachyonfx
 
 [](https://github.com/junkdog/tachyonfx)
 
 ```bash +exec +acquire_terminal
-cargo run --manifest-path tachyonfx/Cargo.toml --example fx-chart
+cargo run --manifest-path tachyonfx/Cargo.toml --example basic-effects
 cargo run --manifest-path tachyonfx/Cargo.toml --example tweens
 ```
 
@@ -643,7 +647,7 @@ cargo run --release --manifest-path ratatui-snake-ai/Cargo.toml
 [](https://github.com/Patryk27/kartoffels)
 
 ```bash +exec +acquire_terminal
-ssh kartoffels.pwy.io > /dev/null
+ssh kartoffels.pwy.io
 ```
 
 <!-- end_slide -->
@@ -683,6 +687,8 @@ See [](https://github.com/ratatui/awesome-ratatui) for more!
 
 <!-- column: 1 -->
 
+<!-- pause -->
+
 ## Socials
 
 - **@orhun@fosstodon.org**
@@ -692,6 +698,8 @@ See [](https://github.com/ratatui/awesome-ratatui) for more!
 
 <!-- column: 2 -->
 
+<!-- pause -->
+
 ## Ratatui
 
 - [](https://ratatui.rs)
@@ -699,9 +707,9 @@ See [](https://github.com/ratatui/awesome-ratatui) for more!
 
 <!-- reset_layout -->
 
-![image:width:20%](assets/ratcopter.gif)
-
 <!-- pause -->
+
+![image:width:20%](assets/ratcopter.gif)
 
 <!-- column_layout: [1, 1, 1] -->
 

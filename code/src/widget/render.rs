@@ -4,10 +4,10 @@ use ratatui::{
 };
 
 pub fn render(mut terminal: Terminal<CrosstermBackend<std::io::Stdout>>) {
+    let mut random_color_widget = crate::RandomColorWidget {
+        rng: rand::thread_rng(),
+    };
     loop {
-        let mut random_color_widget = crate::RandomColorWidget {
-            rng: rand::thread_rng(),
-        };
         terminal
             .draw(|frame: &mut Frame| {
                 frame.render_widget(&mut random_color_widget, frame.area())
