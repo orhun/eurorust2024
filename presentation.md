@@ -507,6 +507,8 @@ cargo run --manifest-path code/Cargo.toml --bin widget
 
 ### Buffer
 
+<!-- pause -->
+
 ```file {1-16|4-5|6-15|1-16} +line_numbers
 path: code/src/widget/test.rs
 language: rust
