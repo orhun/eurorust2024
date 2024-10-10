@@ -654,6 +654,18 @@ ssh kartoffels.pwy.io
 
 ## Showcase
 
+### Binsider
+
+![image:width:8%](assets/binsider-logo.png)
+
+```bash +exec +acquire_terminal
+binsider /usr/bin/ls
+```
+
+[](https://github.com/orhun/binsider)
+
+<!-- pause -->
+
 ### TheaTTYr
 
 ```bash +exec +acquire_terminal
