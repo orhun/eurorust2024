@@ -1,8 +1,8 @@
-## EuroRust 2024 Presentation
+# EuroRust 2024 Presentation 🦀
 
-Session: [Renaissance of Terminal User Interfaces with Rust](https://eurorust.eu/talks/renaissance-of-terminal-user-interfaces-with-rust)
+**Session**: [Renaissance of Terminal User Interfaces with Rust](https://eurorust.eu/talks/renaissance-of-terminal-user-interfaces-with-rust)
 
-### Presenting
+## Presenting
 
 To start the presentation, first install [presenterm](https://github.com/mfontanini/presenterm):
 
