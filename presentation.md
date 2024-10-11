@@ -642,11 +642,41 @@ cargo run --manifest-path tachyonfx/Cargo.toml --example tweens
 cargo run --release --manifest-path ratatui-snake-ai/Cargo.toml
 ```
 
-<!-- pause -->
+<!-- end_slide -->
+
+## Showcase
 
 ### Kartoffels
 
 [](https://github.com/Patryk27/kartoffels)
+
+"a game where you're given a potato and your job is to implement a firmware for it"
+
+<!-- pause -->
+
+```rust +line_numbers
+use kartoffel::*;
+
+#[no_mangle]
+fn main() {
+    loop {
+        radar_wait();
+        let scan = radar_scan_3x3();
+        if scan[0][1] == '.' {
+            motor_wait();
+            motor_step();
+        } else if scan[1][0] == '.' {
+            motor_wait();
+            motor_turn_left();
+        } else if scan[1][2] == '.' {
+            motor_wait();
+            motor_turn_right();
+        }
+    }
+}
+```
+
+<!-- pause -->
 
 ```bash +exec +acquire_terminal
 ssh kartoffels.pwy.io
@@ -658,23 +688,23 @@ ssh kartoffels.pwy.io
 
 ### Binsider
 
+[](https://github.com/orhun/binsider)
+
 ![image:width:8%](assets/binsider-logo.png)
 
 ```bash +exec +acquire_terminal
 binsider /usr/bin/ls
 ```
 
-[](https://github.com/orhun/binsider)
-
 <!-- pause -->
 
 ### TheaTTYr
 
+[](https://github.com/orhun/theattyr)
+
 ```bash +exec +acquire_terminal
 theattyr twilightzone.vt --fps 100
 ```
-
-[](https://github.com/orhun/theattyr)
 
 <!-- pause -->
 
