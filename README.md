@@ -2,6 +2,8 @@
 
 **Session**: [Renaissance of Terminal User Interfaces with Rust](https://eurorust.eu/talks/renaissance-of-terminal-user-interfaces-with-rust)
 
+**Watch this talk**: [https://www.youtube.com/watch?v=hWG51Mc1DlM](https://www.youtube.com/watch?v=hWG51Mc1DlM)
+
 ## Presenting
 
 To start the presentation, first install [presenterm](https://github.com/mfontanini/presenterm):
